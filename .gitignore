@@ -1,0 +1,13 @@
+# Interdire les dossiers de compilation ROS 2
+build/
+install/
+log/
+
+# Fichiers Python compilés
+*.pyc
+__pycache__/
+
+# Outils système et éditeurs
+.vscode/
+.idea/
+.DS_Store

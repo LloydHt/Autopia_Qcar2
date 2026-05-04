@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <actor name="actor">
+     <skin>
+        <filename>model://walking_actor/meshes/walk.dae</filename>
+        <scale>0.002</scale>
+     </skin>
+     <pose>0 0 0 0 0 0</pose>
+     <animation name="walking">
+        <filename>model://walking_actor/meshes/walk.dae</filename>
+        <scale>0.002</scale>
+        <interpolate_x>true</interpolate_x>
+     </animation>
+  </actor>
+</sdf>

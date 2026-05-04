@@ -1,0 +1,42 @@
+ekf_filter_node:
+  ros__parameters:
+    frequency: 30.0
+    sensor_timeout: 0.1
+    two_d_mode: true
+    publish_tf: true
+    map_frame: map
+    odom_frame: qcar2/odom
+    base_link_frame: qcar2/base_link
+    world_frame: qcar2/odom
+
+    # ── Source 1 : Odométrie roues (vitesses uniquement)
+    odom0: /odom
+    odom0_config: [false, false, false,
+                   false, false, false,
+                   true,  true,  false,
+                   false, false, true,
+                   false, false, false]
+    odom0_differential: false
+    odom0_relative: false
+
+    # ── Source 2 : IMU (orientation + vitesse angulaire)
+    imu0: /model/qcar2/imu
+    imu0_config: [false, false, false,
+                  false, false, true,
+                  false, false, false,
+                  false, false, true,
+                  true,  false, false]
+    imu0_relative: true
+    imu0_differential: false
+
+    # ── Source 3 : Ground Truth Gazebo (position absolue = GPS simulé)
+    odom1: /ground_truth
+    odom1_config: [true,  true,  false,   # position x, y ✅
+                   false, false, false,
+                   false, false, false,   # vitesses ignorées
+                   false, false, false,
+                   false, false, false]
+    odom1_differential: false
+    odom1_relative: false                 # position absolue !
+
+    use_control: false
