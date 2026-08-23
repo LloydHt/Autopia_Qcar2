@@ -70,7 +70,8 @@ def generate_launch_description():
         }],
         remappings=[
             ('robot_description', 'robot_description_gz')
-        ]
+        ],
+        ros_arguments=['--log-level', 'error']
     )
 
     # =========================================================
@@ -160,7 +161,8 @@ def generate_launch_description():
                 executable='ground_truth_publisher',
                 name='ground_truth_publisher',
                 output='screen',
-                parameters=[{'use_sim_time': True}]
+                parameters=[{'use_sim_time': True}],
+                ros_arguments=['--log-level', 'error']
             )
         ]
     )
@@ -173,7 +175,35 @@ def generate_launch_description():
         executable='lidar_safety_node',
         name='lidar_safety',
         output='screen',
-        parameters=[{'use_sim_time': True}]
+        parameters=[{'use_sim_time': True}],
+        ros_arguments=['--log-level', 'error']
+    )
+
+    hdmap_navigation_node = Node(
+                package='qcar2_perception',
+                executable='hdmap_navigation_node',
+                name='hdmap_navigation_node',
+                output='screen',
+                parameters=[{'use_sim_time': True, 'mission': 'mission_2'}],
+                ros_arguments=['--log-level', 'error']
+    )
+
+    lane_following_node = Node(
+            package='qcar2_perception', 
+            executable='lane_following_node',
+            name='lane_following_node',
+            output='screen',
+            parameters=[{'use_sim_time': True}],
+            ros_arguments=['--log-level', 'error']
+    )
+
+    stop_sign_node = Node(
+                package='qcar2_perception',
+                executable='stop_sign_node',
+                name='stop_sign_node',
+                output='screen',
+                parameters=[{'use_sim_time': True}],
+                ros_arguments=['--log-level', 'error']
     )
 
     # =========================================================
@@ -193,6 +223,7 @@ def generate_launch_description():
         ]
     )
 
+    
     # =========================================================
     # 13. RETOUR
     # =========================================================
@@ -205,6 +236,10 @@ def generate_launch_description():
         bridge_node,          # 6. Bridge ROS<->Gazebo
         ekf_node,             # 7. EKF
         lidar_safety_node,    # 8. LiDAR safety
-        ground_truth_node,    # 9. Ground truth (après 3s) ★
-        #rviz_node,            # 10. RViz (après 3s)
+        ground_truth_node,    # 9. Ground truth (après 3s)
+        lane_following_node,
+        stop_sign_node,
+        hdmap_navigation_node,
+
+        #rviz_node,           # 11. RViz 
     ])

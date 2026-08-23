@@ -1,0 +1,314 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="Anymal" >
+    <!-- ATTENTION : La balise static a été retirée pour permettre le mouvement -->
+    <link name="base_link">
+      
+      <!-- =================================================== -->
+      <!-- 1. PHYSIQUE : MASSE ET INERTIE (Pour bouger)        -->
+      <!-- =================================================== -->
+      <inertial>
+        <mass>2.0</mass>
+        <inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.01</izz></inertia>
+      </inertial>
+
+      <!-- =================================================== -->
+      <!-- 2. PHYSIQUE : COLLISION (Le LiDAR verra cette boîte)-->
+      <!-- =================================================== -->
+      <collision name="collision">
+        <pose>0 0 0.05 0 0 0</pose>
+        <geometry>
+          <box><size>0.12 0.06 0.08</size></box>
+        </geometry>
+      </collision>
+
+      <!-- =================================================== -->
+      <!-- 3. VISUELS (Toutes les parties mises à l'échelle)   -->
+      <!-- =================================================== -->
+      <visual name= "LowerLegBL_visual">
+        <geometry>
+          <mesh>
+            <uri>model://Anymal/meshes/anymal.dae</uri>
+            <submesh>
+              <name>LowerLegBL</name>
+              <center>false</center>
+            </submesh>
+            <scale>0.5 0.5 0.5</scale> <!-- ECHELLE 1:5 -->
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse><specular>1.0 1.0 1.0</specular>
+          <pbr><metal>
+              <albedo_map>model://Anymal/materials/textures/Anymal_Albedo.jpg</albedo_map>
+              <metal_map>model://Anymal/materials/textures/Anymal_Metalness.jpg</metal_map>
+              <roughness_map>model://Anymal/materials/textures/Anymal_Roughness.jpg</roughness_map>
+          </metal></pbr>
+        </material>
+      </visual>
+
+      <visual name= "ShoulderBR_visual">
+        <geometry>
+          <mesh>
+            <uri>model://Anymal/meshes/anymal.dae</uri>
+            <submesh>
+              <name>ShoulderBR</name>
+              <center>false</center>
+            </submesh>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse><specular>1.0 1.0 1.0</specular>
+          <pbr><metal>
+              <albedo_map>model://Anymal/materials/textures/Anymal_Albedo.jpg</albedo_map>
+              <metal_map>model://Anymal/materials/textures/Anymal_Metalness.jpg</metal_map>
+              <roughness_map>model://Anymal/materials/textures/Anymal_Roughness.jpg</roughness_map>
+          </metal></pbr>
+        </material>
+      </visual>
+
+      <visual name= "UpperLegBR_visual">
+        <geometry>
+          <mesh>
+            <uri>model://Anymal/meshes/anymal.dae</uri>
+            <submesh>
+              <name>UpperLegBR</name>
+              <center>false</center>
+            </submesh>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse><specular>1.0 1.0 1.0</specular>
+          <pbr><metal>
+              <albedo_map>model://Anymal/materials/textures/Anymal_Albedo.jpg</albedo_map>
+              <metal_map>model://Anymal/materials/textures/Anymal_Metalness.jpg</metal_map>
+              <roughness_map>model://Anymal/materials/textures/Anymal_Roughness.jpg</roughness_map>
+          </metal></pbr>
+        </material>
+      </visual>
+
+      <visual name= "LowerLegBR_visual">
+        <geometry>
+          <mesh>
+            <uri>model://Anymal/meshes/anymal.dae</uri>
+            <submesh>
+              <name>LowerLegBR</name>
+              <center>false</center>
+            </submesh>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse><specular>1.0 1.0 1.0</specular>
+          <pbr><metal>
+              <albedo_map>model://Anymal/materials/textures/Anymal_Albedo.jpg</albedo_map>
+              <metal_map>model://Anymal/materials/textures/Anymal_Metalness.jpg</metal_map>
+              <roughness_map>model://Anymal/materials/textures/Anymal_Roughness.jpg</roughness_map>
+          </metal></pbr>
+        </material>
+      </visual>
+
+      <visual name= "ShoulderBL_visual">
+        <geometry>
+          <mesh>
+            <uri>model://Anymal/meshes/anymal.dae</uri>
+            <submesh>
+              <name>ShoulderBL</name>
+              <center>false</center>
+            </submesh>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse><specular>1.0 1.0 1.0</specular>
+          <pbr><metal>
+              <albedo_map>model://Anymal/materials/textures/Anymal_Albedo.jpg</albedo_map>
+              <metal_map>model://Anymal/materials/textures/Anymal_Metalness.jpg</metal_map>
+              <roughness_map>model://Anymal/materials/textures/Anymal_Roughness.jpg</roughness_map>
+          </metal></pbr>
+        </material>
+      </visual>
+
+      <visual name= "UpperLegBL_visual">
+        <geometry>
+          <mesh>
+            <uri>model://Anymal/meshes/anymal.dae</uri>
+            <submesh>
+              <name>UpperLegBL</name>
+              <center>false</center>
+            </submesh>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse><specular>1.0 1.0 1.0</specular>
+          <pbr><metal>
+              <albedo_map>model://Anymal/materials/textures/Anymal_Albedo.jpg</albedo_map>
+              <metal_map>model://Anymal/materials/textures/Anymal_Metalness.jpg</metal_map>
+              <roughness_map>model://Anymal/materials/textures/Anymal_Roughness.jpg</roughness_map>
+          </metal></pbr>
+        </material>
+      </visual>
+
+      <visual name= "LowerLegFR_visual">
+        <geometry>
+          <mesh>
+            <uri>model://Anymal/meshes/anymal.dae</uri>
+            <submesh>
+              <name>LowerLegFR</name>
+              <center>false</center>
+            </submesh>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse><specular>1.0 1.0 1.0</specular>
+          <pbr><metal>
+              <albedo_map>model://Anymal/materials/textures/Anymal_Albedo.jpg</albedo_map>
+              <metal_map>model://Anymal/materials/textures/Anymal_Metalness.jpg</metal_map>
+              <roughness_map>model://Anymal/materials/textures/Anymal_Roughness.jpg</roughness_map>
+          </metal></pbr>
+        </material>
+      </visual>
+
+      <visual name= "ShoulderFL_visual">
+        <geometry>
+          <mesh>
+            <uri>model://Anymal/meshes/anymal.dae</uri>
+            <submesh>
+              <name>ShoulderFL</name>
+              <center>false</center>
+            </submesh>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse><specular>1.0 1.0 1.0</specular>
+          <pbr><metal>
+              <albedo_map>model://Anymal/materials/textures/Anymal_Albedo.jpg</albedo_map>
+              <metal_map>model://Anymal/materials/textures/Anymal_Metalness.jpg</metal_map>
+              <roughness_map>model://Anymal/materials/textures/Anymal_Roughness.jpg</roughness_map>
+          </metal></pbr>
+        </material>
+      </visual>
+
+      <visual name= "UpperLegFL_visual">
+        <geometry>
+          <mesh>
+            <uri>model://Anymal/meshes/anymal.dae</uri>
+            <submesh>
+              <name>UpperLegFL</name>
+              <center>false</center>
+            </submesh>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse><specular>1.0 1.0 1.0</specular>
+          <pbr><metal>
+              <albedo_map>model://Anymal/materials/textures/Anymal_Albedo.jpg</albedo_map>
+              <metal_map>model://Anymal/materials/textures/Anymal_Metalness.jpg</metal_map>
+              <roughness_map>model://Anymal/materials/textures/Anymal_Roughness.jpg</roughness_map>
+          </metal></pbr>
+        </material>
+      </visual>
+
+      <visual name= "LowerLegFL_visual">
+        <geometry>
+          <mesh>
+            <uri>model://Anymal/meshes/anymal.dae</uri>
+            <submesh>
+              <name>LowerLegFL</name>
+              <center>false</center>
+            </submesh>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse><specular>1.0 1.0 1.0</specular>
+          <pbr><metal>
+              <albedo_map>model://Anymal/materials/textures/Anymal_Albedo.jpg</albedo_map>
+              <metal_map>model://Anymal/materials/textures/Anymal_Metalness.jpg</metal_map>
+              <roughness_map>model://Anymal/materials/textures/Anymal_Roughness.jpg</roughness_map>
+          </metal></pbr>
+        </material>
+      </visual>
+
+      <visual name= "ShoulderFR_visual">
+        <geometry>
+          <mesh>
+            <uri>model://Anymal/meshes/anymal.dae</uri>
+            <submesh>
+              <name>ShoulderFR</name>
+              <center>false</center>
+            </submesh>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse><specular>1.0 1.0 1.0</specular>
+          <pbr><metal>
+              <albedo_map>model://Anymal/materials/textures/Anymal_Albedo.jpg</albedo_map>
+              <metal_map>model://Anymal/materials/textures/Anymal_Metalness.jpg</metal_map>
+              <roughness_map>model://Anymal/materials/textures/Anymal_Roughness.jpg</roughness_map>
+          </metal></pbr>
+        </material>
+      </visual>
+
+      <visual name= "UpperLegFR_visual">
+        <geometry>
+          <mesh>
+            <uri>model://Anymal/meshes/anymal.dae</uri>
+            <submesh>
+              <name>UpperLegFR</name>
+              <center>false</center>
+            </submesh>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse><specular>1.0 1.0 1.0</specular>
+          <pbr><metal>
+              <albedo_map>model://Anymal/materials/textures/Anymal_Albedo.jpg</albedo_map>
+              <metal_map>model://Anymal/materials/textures/Anymal_Metalness.jpg</metal_map>
+              <roughness_map>model://Anymal/materials/textures/Anymal_Roughness.jpg</roughness_map>
+          </metal></pbr>
+        </material>
+      </visual>
+
+      <visual name= "Body_visual">
+        <geometry>
+          <mesh>
+            <uri>model://Anymal/meshes/anymal.dae</uri>
+            <submesh>
+              <name>Body</name>
+              <center>false</center>
+            </submesh>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse><specular>1.0 1.0 1.0</specular>
+          <pbr><metal>
+              <albedo_map>model://Anymal/materials/textures/Anymal_Albedo.jpg</albedo_map>
+              <metal_map>model://Anymal/materials/textures/Anymal_Metalness.jpg</metal_map>
+              <roughness_map>model://Anymal/materials/textures/Anymal_Roughness.jpg</roughness_map>
+          </metal></pbr>
+        </material>
+      </visual>
+    </link>
+
+    <!-- =================================================== -->
+    <!-- 4. CONTROLEUR ROS2 (Pour le faire traverser)        -->
+    <!-- =================================================== -->
+    <plugin name="anymal_controller" filename="libgazebo_ros_planar_move.so">
+      <ros>
+        <namespace>/anymal_test</namespace>
+        <remapping>cmd_vel:=cmd_vel</remapping>
+      </ros>
+      <update_rate>50.0</update_rate>
+      <publish_odom>false</publish_odom>
+    </plugin>
+  </model>
+</sdf>
